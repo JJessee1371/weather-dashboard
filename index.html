@@ -9,19 +9,19 @@
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
     <!-- Personal Stylesheet -->
-    <link rel ="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css">
     <title>Weather Dashboard</title>
 </head>
 
 <body>
     <!-- Header-->
-    <header id="header-main">Weather Dashboard</header>
+    <header class="bg-dark text-center">Weather Dashboard</header>
 
     <!-- Search bar and search history -->
     <div class="container">
         <div class="columns">
             <div class="column col-4">
-                <h4 id="search">Enter a city name</h3>
+                <h4 id="search">Search a city name:</h3>
                     <div class="input-group">
                         <input type="text" class="form-input" placeholder="Enter city here">
                         <button class="btn btn-primary input-group-btn"><i class="icon icon-search"></i></button>
@@ -32,16 +32,22 @@
             <!-- Current Days Forecast-->
             <div class="column col-8">
                 <div class="card">
-                    <div class="card-header">
-                        <div class="card-title h5"></div>
+                    <div id="card-header" class="card-header">
+                        <div class="card-title h5">Todays Weather:</div>
                     </div>
                     <div class="card-body"></div>
                 </div>
                 <div class="columns">
                     <!-- 5 Day Forecast-->
                     <div class="column col-8">
-                        <h4 class="forecast-container">5 Day</h4>
-                        <div class="forecast"></div>
+                        <h4 class="forecast-container">5 Day Forecast</h4>
+                        <div class="columns">
+                            <div id="day1" class="column col-2">1</div>
+                            <div id="day2" class="column col-2">2</div>
+                            <div id="day3" class="column col-2">3</div>
+                            <div id="day4" class="column col-2">4</div>
+                            <div id="day5" class="column col-2">5</div>
+                        </div>
                     </div>
                 </div>
             </div>
