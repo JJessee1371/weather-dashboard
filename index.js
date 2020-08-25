@@ -53,6 +53,19 @@ searchBtn.on('click', function () {
             console.log(response2);
             //Set UV index for the current day
             uv.text('UV Index: ' + response2.current.uvi);
+
+            //Set 5 day forecast
+            daysAddArr = [1, 2, 3, 4, 5];
+            dailyArr = [0, 1, 2, 3, 4];
+            displayArr = [day1, day2, day3, day4, day5];
+
+            for (i = 0; i < 5; i++) {
+            let date = $('<p>').text(moment().add(daysAddArr[i], 'days').format("MM/DD/YYYY"));
+            let k = response2.daily[dailyArr[i]].temp.day;
+            let f = $('<p>').text(Math.floor(1.8 * (k - 273) + 32) + '°F');
+            let humidity = $('<p>').text(response2.daily[dailyArr[i]].humidity + '%');
+            displayArr[i].append(date, f, humidity);
+            }
         })
 
         //Saves city searches to the local storage and displays
@@ -61,7 +74,7 @@ searchBtn.on('click', function () {
         //Empty the previously set items in the card
 
         //Current days forecast
-        city.text('Todays weather in: ' + cityName + ' ');
+        city.text('Todays weather in: ' + cityName + ' ' + moment().format("MM/DD/YYYY"));
         //Convert Kelvin temp to Farenheit
         let k = response.main.temp;
         let f = Math.floor(1.8 * (k - 273) + 32);
