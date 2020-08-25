@@ -52,8 +52,12 @@ searchBtn.on('click', function () {
             console.log(response2);
             //Empty previously set items
             uv.empty();
+            day1.empty();
+            day2.empty();
+            day3.empty();
+            day4.empty();
+            day5.empty();
 
-            
             //Set UV index for the current day
             uv.text('UV Index: ' + response2.current.uvi);
 
