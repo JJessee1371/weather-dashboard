@@ -16,12 +16,9 @@ const day4 = $('#day1');
 const day5 = $('#day1');
 
 console.log('Sanity Check');
-//Load local storage items into search history
-// for (i = 0; i < localStorage.length; i++) {
-//     let savedCity = localStorage.getItem(localStorage.key(i));
-//     let listItem = $('<tr>');
-//     table.append(listItem.text(savedCity));
-// }
+//Load items from local storage when the page is reloaded
+//Change key variable to be equal to the localStorage.length, that way new items are added properly?
+//Set limit on the table for search history? New searches override the old ones via key variable
 
 
 //Local Storage will clear at the end of each day
@@ -30,8 +27,10 @@ let currentHour = now.hour();
 if (currentHour === 0) { localStorage.clear() };
 
 
-//Key variable ensures a new key is created for each save to local storage
+//Key variable ensures a new key is created for each saved search to local storage
 let key = 1;
+
+//Search button click listener
 searchBtn.on('click', function () {
     let cityName = userInput.val().trim();
     let queryURL = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&appid=09009915e3fc252d07db5e780defa8fe';
@@ -50,7 +49,7 @@ searchBtn.on('click', function () {
             method: 'GET'
         }).then(function (response2) {
             console.log(response2);
-            //Empty previously set items
+            //Empty previously set items in the 5 day forecast
             uv.empty();
             day1.empty();
             day2.empty();
@@ -58,7 +57,7 @@ searchBtn.on('click', function () {
             day4.empty();
             day5.empty();
 
-            //Set UV index for the current day
+            //Set UV index value for the current day
             uv.text('UV Index: ' + response2.current.uvi);
 
             //Set 5 day forecast
@@ -80,34 +79,38 @@ searchBtn.on('click', function () {
                 let humidity = $('<p>').text(response2.daily[dailyArr[i]].humidity + '%');
                 //Append all items to specified day
                 displayArr[i].append(newIcon, date, f, humidity);
-            }
-        })
+            };
+        });
 
-        //Saves city searches to the local storage and displays
+
+        //Saves city searches to the local storage
         localStorage.setItem('city' + key, cityName);
         key++;
-        //Empty the previously set items in the card
+        //Displays the search history to the screen
+        let savedCity = localStorage.getItem('city' + (key - 1));
+        let listItem = $('<tr>');
+        table.append(listItem.text(savedCity));
+
+
+        //Empty the previously set items in the current days weather
         city.empty();
         icon.attr('src', '');
         temp.empty();
         humidity.empty();
         wind.empty();
-        //Current days forecast
+        //Set current days forecast
         city.text('Todays weather in: ' + cityName + ' ' + moment().format("MM/DD/YYYY"));
         //Get the open weather icon
         let iconCode = response.weather[0].icon;
         let iconURL = 'http://openweathermap.org/img/w/' + iconCode + '.png';
         icon.attr('src', iconURL);
-        //Convert Kelvin temp to Farenheit
+        //Convert Kelvin temp to Farenheit and set
         let k = response.main.temp;
         let f = Math.floor(1.8 * (k - 273) + 32);
         temp.text('Temperature:' + ' ' + f + ' ' + '°F');
+        //Set humidity
         humidity.text('Humidity:' + ' ' + response.main.humidity + '%');
+        //Set wind speed
         wind.text('Wind speed:' + ' ' + response.wind.speed + 'mph');
-
-        let savedCity = localStorage.getItem('city' + (key - 1));
-        console.log('city' + key);
-        let listItem = $('<tr>');
-        table.append(listItem.text(savedCity));
     });
 })
