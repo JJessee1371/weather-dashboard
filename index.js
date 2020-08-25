@@ -34,9 +34,7 @@ if (currentHour === 0) { localStorage.clear() };
 let key = 1;
 searchBtn.on('click', function () {
     let cityName = userInput.val().trim();
-
     let queryURL = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&appid=09009915e3fc252d07db5e780defa8fe';
-
     $.ajax({
         url: queryURL,
         method: 'GET'
@@ -52,6 +50,10 @@ searchBtn.on('click', function () {
             method: 'GET'
         }).then(function (response2) {
             console.log(response2);
+            //Empty previously set items
+            uv.empty();
+
+            
             //Set UV index for the current day
             uv.text('UV Index: ' + response2.current.uvi);
 
@@ -81,7 +83,11 @@ searchBtn.on('click', function () {
         localStorage.setItem('city' + key, cityName);
         key++;
         //Empty the previously set items in the card
-
+        city.empty();
+        icon.attr('src', '');
+        temp.empty();
+        humidity.empty();
+        wind.empty();
         //Current days forecast
         city.text('Todays weather in: ' + cityName + ' ' + moment().format("MM/DD/YYYY"));
         //Get the open weather icon
