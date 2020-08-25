@@ -3,7 +3,11 @@ const userInput = $('#user-input');
 const search = $('#search-history');
 const searchBtn = $('#searchBtn');
 const city = $('#card-title');
-const cardContent = $('#card-content')
+const temp = $('#temp');
+const humidity = $('#humid');
+const wind = $('#wind');
+const uv = $('#uv');
+const table = $('#table');
 const day1 = $('#day1');
 const day2 = $('#day1');
 const day3 = $('#day1');
@@ -11,7 +15,19 @@ const day4 = $('#day1');
 const day5 = $('#day1');
 
 console.log('Sanity Check');
-//Call using city name api.openweathermap.org/data/2.5/weather?q={city name}&appid={your api key}
+//Load local storage items
+for (i = 0; i < localStorage.length; i++) {
+    let savedCity = localStorage.getItem(localStorage.key(i));
+    let listItem = $('<tr>');
+    table.append(listItem.text(savedCity));
+}
+//Local Storage will clear out at the end of each day
+let now = moment();
+let currentHour = now.hour();
+if (currentHour === 0) {localStorage.clear()};
+
+//Key variable ensures a new key is created for each save to local storage
+let key = 1;
 searchBtn.on('click', function() {
     let cityName = userInput.val().trim();
     let currentDay = moment().format("MM/DD/YYYY");
@@ -26,19 +42,20 @@ searchBtn.on('click', function() {
         .then(function(response) {
             console.log(response);
 
+            //Saves city searches to the local storage and displays
+            localStorage.setItem('city' + key, cityName);
+            key++;
+            
+            temp.empty();
             //Current days forecast
             city.text('Todays weather in: ' + cityName + ' ' + currentDay);
             //Convert Kelvin temp to Farenheit
             let k = response.main.temp;
             let f = Math.floor(1.8 * (k - 273) + 32);
-            let temp = $('<p>');
             temp.text('Temperature:' + ' '  + f + ' ' + '°F');
-            let humid = $('<p>');
-            humid.text('Humidity:' + ' ' + response.main.humidity);
-            let wind = $('<p>');
+            humidity.text('Humidity:' + ' ' + response.main.humidity + '%');
             wind.text('Wind speed:' + ' ' + response.wind.speed + 'mph');
             // uv.text('UV Index:' + ' ' + )
-            cardContent.append(temp, humid, wind);
         })
 
 })
