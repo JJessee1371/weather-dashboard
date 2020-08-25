@@ -10,10 +10,10 @@ const wind = $('#wind');
 const uv = $('#uv');
 const table = $('#table');
 const day1 = $('#day1');
-const day2 = $('#day1');
-const day3 = $('#day1');
-const day4 = $('#day1');
-const day5 = $('#day1');
+const day2 = $('#day2');
+const day3 = $('#day3');
+const day4 = $('#day4');
+const day5 = $('#day5');
 
 console.log('Sanity Check');
 //Load items from local storage when the page is reloaded
