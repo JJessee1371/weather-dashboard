@@ -61,11 +61,19 @@ searchBtn.on('click', function () {
             displayArr = [day1, day2, day3, day4, day5];
 
             for (i = 0; i < 5; i++) {
+                //Set Date
                 let date = $('<p>').text(moment().add(daysAddArr[i], 'days').format("MM/DD/YYYY"));
+                //Set Icon
+                let iconCode = response2.daily[dailyArr[i]].weather[0].icon;
+                let iconURL = 'http://openweathermap.org/img/w/' + iconCode + '.png';
+                let newIcon = $('<img>').attr('alt', 'Weather Icon').attr('src', iconURL);
+                //Set Temperature
                 let k = response2.daily[dailyArr[i]].temp.day;
                 let f = $('<p>').text(Math.floor(1.8 * (k - 273) + 32) + '°F');
+                //Set Humidity
                 let humidity = $('<p>').text(response2.daily[dailyArr[i]].humidity + '%');
-                displayArr[i].append(date, f, humidity);
+                //Append all items to specified day
+                displayArr[i].append(newIcon, date, f, humidity);
             }
         })
 
