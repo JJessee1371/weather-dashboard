@@ -28,11 +28,11 @@ let now = moment();
 let currentHour = now.hour();
 if (currentHour === 0) { localStorage.clear() };
 
+
 //Key variable ensures a new key is created for each save to local storage
 let key = 1;
 searchBtn.on('click', function () {
     let cityName = userInput.val().trim();
-    let currentDay = moment().format("MM/DD/YYYY");
 
     let queryURL = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&appid=09009915e3fc252d07db5e780defa8fe';
 
@@ -41,13 +41,27 @@ searchBtn.on('click', function () {
         method: 'GET'
     }).then(function (response) {
         console.log(response);
+
+        //One Call API to get UV index information utilizing lat/lon from previous ajax request
+        let lat = response.coord.lat;
+        let lon = response.coord.lon;
+        let queryURL2 = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&exclude=hourly,minutely&appid=09009915e3fc252d07db5e780defa8fe';
+        $.ajax({
+            url: queryURL2,
+            method: 'GET'
+        }).then(function (response2) {
+            console.log(response2);
+            //Set UV index for the current day
+            uv.text('UV Index: ' + response2.current.uvi);
+        })
+
         //Saves city searches to the local storage and displays
         localStorage.setItem('city' + key, cityName);
         key++;
         //Empty the previously set items in the card
 
         //Current days forecast
-        city.text('Todays weather in: ' + cityName + ' ' + currentDay);
+        city.text('Todays weather in: ' + cityName + ' ');
         //Convert Kelvin temp to Farenheit
         let k = response.main.temp;
         let f = Math.floor(1.8 * (k - 273) + 32);
@@ -61,26 +75,11 @@ searchBtn.on('click', function () {
         let listItem = $('<tr>');
         table.append(listItem.text(savedCity));
     });
-
-    // api.openweathermap.org/data/2.5/forecast?q={city name}&appid={your api key}
-    let queryURL2 = 'https://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&appid=09009915e3fc252d07db5e780defa8fe';
-
-    $.ajax({
-        url: queryURL2,
-        method: 'GET'
-    }).then(function (response) {
-        console.log(response);
-        let day1Date = $('<p>').text(moment().add(1, 'days').format("MM/DD/YYYY"));
-        let day1k = response.main.temp;
-        let day1f = $('<p>').text(Math.floor(1.8 * (k - 273) + 32));
-        let day1Humidity = $('<p>').text(response.main.humidity);
-        day1.append(date, f, humidity);
+        // let day1Date = $('<p>').text(moment().add(1, 'days').format("MM/DD/YYYY"));
+        // let day1k = response.main.temp;
+        // let day1f = $('<p>').text(Math.floor(1.8 * (k - 273) + 32));
+        // let day1Humidity = $('<p>').text(response.main.humidity);
+        // day1.append(date, f, humidity);
         
 
-    // console.log(moment().add(1, 'days').format("MM/DD/YYYY"));
-    // console.log(moment().add(2, 'days').format("MM/DD/YYYY"));
-
     })
-
-
-})
