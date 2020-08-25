@@ -34,11 +34,14 @@
             <div class="column col-8">
                 <div class="card">
                     <div id="card-header" class="card-header">
-                        <div id="card-title" class="card-title h5">Todays Weather in:
+                        <div class="card-title h5">
+                            <h3 id="card-title">Todays Weather in:</h3>
+                            <hr>
                         </div>
                     </div>
                     <hr>
-                    <div class="card-body"> 
+                    <div class="card-body">
+                        <img id="weathicon" class="icon-wrap" src="" alt="Weather icon"> 
                         <p id="temp"></p>
                         <p id="humid"></p>
                         <p id="wind"></p>
@@ -48,13 +51,13 @@
                 <div class="columns">
                     <!-- 5 Day Forecast-->
                     <div class="column col-12">
-                        <h4 class="forecast-container">5 Day Forecast</h4>
-                        <div class="columns">
-                            <div id="day1" class="column col-2">1</div>
-                            <div id="day2" class="column col-2">2</div>
-                            <div id="day3" class="column col-2">3</div>
-                            <div id="day4" class="column col-2">4</div>
-                            <div id="day5" class="column col-2">5</div>
+                        <h4>5 Day Forecast</h4>
+                        <div id="forecast-container" class="columns">
+                            <div id="day1" class="column col-2 forecast">1</div>
+                            <div id="day2" class="column col-2 forecast">2</div>
+                            <div id="day3" class="column col-2 forecast">3</div>
+                            <div id="day4" class="column col-2 forecast">4</div>
+                            <div id="day5" class="column col-2 forecast">5</div>
                         </div>
                     </div>
                 </div>

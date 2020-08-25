@@ -3,6 +3,7 @@ const userInput = $('#user-input');
 const search = $('#search-history');
 const searchBtn = $('#searchBtn');
 const city = $('#card-title');
+const icon = $('#weathicon');
 const temp = $('#temp');
 const humidity = $('#humid');
 const wind = $('#wind');
@@ -60,11 +61,11 @@ searchBtn.on('click', function () {
             displayArr = [day1, day2, day3, day4, day5];
 
             for (i = 0; i < 5; i++) {
-            let date = $('<p>').text(moment().add(daysAddArr[i], 'days').format("MM/DD/YYYY"));
-            let k = response2.daily[dailyArr[i]].temp.day;
-            let f = $('<p>').text(Math.floor(1.8 * (k - 273) + 32) + '°F');
-            let humidity = $('<p>').text(response2.daily[dailyArr[i]].humidity + '%');
-            displayArr[i].append(date, f, humidity);
+                let date = $('<p>').text(moment().add(daysAddArr[i], 'days').format("MM/DD/YYYY"));
+                let k = response2.daily[dailyArr[i]].temp.day;
+                let f = $('<p>').text(Math.floor(1.8 * (k - 273) + 32) + '°F');
+                let humidity = $('<p>').text(response2.daily[dailyArr[i]].humidity + '%');
+                displayArr[i].append(date, f, humidity);
             }
         })
 
@@ -75,24 +76,20 @@ searchBtn.on('click', function () {
 
         //Current days forecast
         city.text('Todays weather in: ' + cityName + ' ' + moment().format("MM/DD/YYYY"));
+        //Get the open weather icon
+        let iconCode = response.weather[0].icon;
+        let iconURL = 'http://openweathermap.org/img/w/' + iconCode + '.png';
+        icon.attr('src', iconURL);
         //Convert Kelvin temp to Farenheit
         let k = response.main.temp;
         let f = Math.floor(1.8 * (k - 273) + 32);
         temp.text('Temperature:' + ' ' + f + ' ' + '°F');
         humidity.text('Humidity:' + ' ' + response.main.humidity + '%');
         wind.text('Wind speed:' + ' ' + response.wind.speed + 'mph');
-        // uv.text('UV Index:' + ' ' + )
 
         let savedCity = localStorage.getItem('city' + (key - 1));
         console.log('city' + key);
         let listItem = $('<tr>');
         table.append(listItem.text(savedCity));
     });
-        // let day1Date = $('<p>').text(moment().add(1, 'days').format("MM/DD/YYYY"));
-        // let day1k = response.main.temp;
-        // let day1f = $('<p>').text(Math.floor(1.8 * (k - 273) + 32));
-        // let day1Humidity = $('<p>').text(response.main.humidity);
-        // day1.append(date, f, humidity);
-        
-
-    })
+})

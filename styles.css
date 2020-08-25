@@ -2,3 +2,12 @@ header {
     font-size: 4em;
     margin-bottom: 25px;
 }
+
+#forecast-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.forecast {
+    border: 2px solid black;
+}
