@@ -2,11 +2,8 @@
 const userInput = $('#user-input');
 const search = $('#search-history');
 const searchBtn = $('#searchBtn');
-const today = $('#card-title');
-const temp = $('#temp');
-const humid = $('#humidity');
-const wind = $('#wind');
-const uv = $('uv');
+const city = $('#card-title');
+const cardContent = $('#card-content')
 const day1 = $('#day1');
 const day2 = $('#day1');
 const day3 = $('#day1');
@@ -28,7 +25,20 @@ searchBtn.on('click', function() {
         //Returns response data from open weather
         .then(function(response) {
             console.log(response);
-            today.text('Todays weather in: ' + cityName + ' ' + currentDay);
+
+            //Current days forecast
+            city.text('Todays weather in: ' + cityName + ' ' + currentDay);
+            //Convert Kelvin temp to Farenheit
+            let k = response.main.temp;
+            let f = Math.floor(1.8 * (k - 273) + 32);
+            let temp = $('<p>');
+            temp.text('Temperature:' + ' '  + f + ' ' + '°F');
+            let humid = $('<p>');
+            humid.text('Humidity:' + ' ' + response.main.humidity);
+            let wind = $('<p>');
+            wind.text('Wind speed:' + ' ' + response.wind.speed + 'mph');
+            // uv.text('UV Index:' + ' ' + )
+            cardContent.append(temp, humid, wind);
         })
 
 })
