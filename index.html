@@ -33,7 +33,13 @@
             <div class="column col-8">
                 <div class="card">
                     <div id="card-header" class="card-header">
-                        <div id="card-title" class="card-title h5">Todays Weather in:</div>
+                        <div id="card-title" class="card-title h5">Todays Weather in:
+                            <hr>
+                            <p id="temp">Temperature:</p>
+                            <p id="humidity">Humidity:</p>
+                            <p id="wind">Wind speed:</p>
+                            <p id="uv">UV Index:</p>
+                        </div>
                     </div>
                     <div class="card-body"></div>
                 </div>
@@ -59,6 +65,8 @@
 src="https://code.jquery.com/jquery-3.5.1.js"
 integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
 crossorigin="anonymous"></script>
+<!-- Moment.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <!-- External JS Script -->
 <script src="index.js"></script>
 </body>
