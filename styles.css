@@ -16,6 +16,11 @@ header {
     border: 2px solid black;
 }
 
+.day5 {
+    border: 2px solid black;
+    border-radius: 25px;
+}
+
 li:hover {
     text-decoration: underline;
 }
