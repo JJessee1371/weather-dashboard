@@ -9,6 +9,7 @@ const temp = $('#temp');
 const humidity = $('#humid');
 const wind = $('#wind');
 const uv = $('#uv');
+const uvNum =$('#uvNum');
 const list = $('#list');
 const day1 = $('#day1');
 const day2 = $('#day2');
@@ -63,7 +64,18 @@ searchBtn.on('click', function () {
             day5.empty();
 
             //Set UV index value for the current day
-            uv.text('UV Index: ' + response2.current.uvi);
+            uv.text('UV Index: ');
+            uvNum.text(response2.current.uvi);
+            uvNum.removeClass('label-success label-warning label-error');
+            if(response2.current.uvi < 4) {
+                uvNum.addClass('label-success');
+            }
+            else if(response2.current.uvi >= 4 && response2.current.uvi <= 7) {
+                uvNum.addClass('label-warning');
+            }
+            else if(response2.current.uvi > 7) {
+                uvNum.addClass('label-error');
+            };
 
             //Set 5 day forecast
             daysAddArr = [1, 2, 3, 4, 5];
@@ -121,7 +133,7 @@ searchBtn.on('click', function () {
 });
 
 
-//When user clicks an item in search history they are presented with current/future data for that city
+// When user clicks an item in search history they are presented with current/future data for that city
 list.on('click', function(event) {
     let cityName = $(event.target).text();
     let queryURL = 'http://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&appid=09009915e3fc252d07db5e780defa8fe';
@@ -149,7 +161,18 @@ list.on('click', function(event) {
             day5.empty();
 
             //Set UV index value for the current day
-            uv.text('UV Index: ' + response2.current.uvi);
+            uv.text('UV Index: ');
+            uvNum.text(response2.current.uvi);
+            uvNum.removeClass('label-success label-warning label-error');
+            if(response2.current.uvi < 4) {
+                uvNum.addClass('label-success');
+            }
+            else if(response2.current.uvi >= 4 && response2.current.uvi <= 7) {
+                uvNum.addClass('label-warning');
+            }
+            else if(response2.current.uvi > 7) {
+                uvNum.addClass('label-error');
+            };
 
             //Set 5 day forecast
             daysAddArr = [1, 2, 3, 4, 5];

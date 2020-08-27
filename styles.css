@@ -3,6 +3,10 @@ header {
     margin-bottom: 25px;
 }
 
+#user-input {
+    margin-bottom: 15px;
+}
+
 #forecast-container {
     display: flex;
     justify-content: space-around;
@@ -10,4 +14,8 @@ header {
 
 .forecast {
     border: 2px solid black;
+}
+
+li:hover {
+    text-decoration: underline;
 }
