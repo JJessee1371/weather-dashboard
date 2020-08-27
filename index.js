@@ -9,7 +9,7 @@ const temp = $('#temp');
 const humidity = $('#humid');
 const wind = $('#wind');
 const uv = $('#uv');
-const table = $('#table');
+const list = $('#list');
 const day1 = $('#day1');
 const day2 = $('#day2');
 const day3 = $('#day3');
@@ -25,12 +25,20 @@ console.log('Sanity Check');
 //Clear search history when button is clicked
 clearBtn.on('click', function(){
     localStorage.clear();
-    table.empty();
+    list.empty();
 });
+
+//Load search history from the local storage
+for (i = 0; i < localStorage.length; i++) {
+    console.log(localStorage.key(i));
+    let savedCity = localStorage.getItem(localStorage.key(i))
+    let listItem = $('<li>');
+    list.append(listItem.text(savedCity));
+};
 
 
 //Key variable ensures a new key is created for each saved search to local storage
-let key = 1;
+let key = localStorage.length;
 
 //Search button click listener
 searchBtn.on('click', function () {
@@ -89,9 +97,9 @@ searchBtn.on('click', function () {
         localStorage.setItem('city' + key, cityName);
         key++;
         //Displays the search history to the screen
-        let savedCity = localStorage.getItem('city' + (key - 1));
-        let listItem = $('<tr>');
-        table.append(listItem.text(savedCity));
+        let savedCity = localStorage.getItem('city' + key);
+        let listItem = $('<li>');
+        list.append(listItem.text(savedCity));
 
 
         //Empty the previously set items in the current days weather
