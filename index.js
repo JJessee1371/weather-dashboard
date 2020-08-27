@@ -2,6 +2,7 @@
 const userInput = $('#user-input');
 const search = $('#search-history');
 const searchBtn = $('#searchBtn');
+const clearBtn = $('#clear');
 const city = $('#card-title');
 const icon = $('#weathicon');
 const temp = $('#temp');
@@ -21,10 +22,11 @@ console.log('Sanity Check');
 //Set limit on the table for search history? New searches override the old ones via key variable
 
 
-//Local Storage will clear at the end of each day
-let now = moment();
-let currentHour = now.hour();
-if (currentHour === 0) { localStorage.clear() };
+//Clear search history when button is clicked
+clearBtn.on('click', function(){
+    localStorage.clear();
+    table.empty();
+});
 
 
 //Key variable ensures a new key is created for each saved search to local storage
@@ -33,7 +35,7 @@ let key = 1;
 //Search button click listener
 searchBtn.on('click', function () {
     let cityName = userInput.val().trim();
-    let queryURL = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&appid=09009915e3fc252d07db5e780defa8fe';
+    let queryURL = 'http://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&appid=09009915e3fc252d07db5e780defa8fe';
     $.ajax({
         url: queryURL,
         method: 'GET'
@@ -43,7 +45,7 @@ searchBtn.on('click', function () {
         //One Call API to get UV index information utilizing lat/lon from previous ajax request
         let lat = response.coord.lat;
         let lon = response.coord.lon;
-        let queryURL2 = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&exclude=hourly,minutely&appid=09009915e3fc252d07db5e780defa8fe';
+        let queryURL2 = 'http://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&exclude=hourly,minutely&appid=09009915e3fc252d07db5e780defa8fe';
         $.ajax({
             url: queryURL2,
             method: 'GET'
