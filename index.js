@@ -24,14 +24,14 @@ clearBtn.on('click', function () {
     list.empty();
 });
 
-for (i = 0; i < localStorage.length; i++) {
-    console.log(localStorage.key(i));
-    let savedCity = localStorage.getItem(localStorage.key(i))
-    let listItem = $('<li>');
-    list.append(listItem.text(savedCity));
-};
-
-let key = localStorage.length;
+// for (i = 0; i < localStorage.length; i++) {
+//     console.log(localStorage.key(i));
+//     let savedCity = localStorage.getItem(localStorage.key(i))
+//     let listItem = $('<li>');
+//     list.append(listItem.text(savedCity));
+// };
+let searchedArr = [];
+// console.log(key);
 
 //Function retrieves weather data
 function getWeather(cityName) {
@@ -40,8 +40,6 @@ function getWeather(cityName) {
         url: queryURL,
         method: 'GET'
     }).then(function (response) {
-        console.log(response);
-
         //One Call API to get UV index information utilizing lat/lon from previous ajax request
         let lat = response.coord.lat;
         let lon = response.coord.lon;
@@ -50,7 +48,6 @@ function getWeather(cityName) {
             url: queryURL2,
             method: 'GET'
         }).then(function (response2) {
-            console.log(response2);
             //Empty previously set items in the 5 day forecast
             uv.empty();
             day1.empty();
@@ -96,12 +93,13 @@ function getWeather(cityName) {
         });
 
         //Saves city searches to the local storage
-        localStorage.setItem('city' + key, cityName);
-        key++;
-        //Displays the search history to the screen
-        let newSearch = localStorage.getItem('city' + (key - 1));
+        searchedArr.push(cityName);
+        localStorage.setItem('storedArr', JSON.stringify(searchedArr));
+        // //Displays the search history to the screen
+        let searchHist = JSON.parse(localStorage.getItem('storedArr'));
+        let listItem = searchHist[searchHist.length - 1]
         let listDisplay = $('<li>');
-        list.append(listDisplay.text(newSearch));
+        list.append(listDisplay.text(listItem));
 
 
         //Empty the previously set items in the current days weather
