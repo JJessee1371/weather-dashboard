@@ -1,10 +1,39 @@
+body {
+    background-image: linear-gradient(to right, rgb(86, 86, 248),rgb(78, 108, 240),rgb(83, 222, 247));
+}
+
+p {
+    font-size: 1.5em;
+}
+
+li {
+    color: black;
+    font-size: 1.25em;
+}
+
 header {
     font-size: 4em;
     margin-bottom: 25px;
 }
 
+#search {
+    color: black;
+}
+
+#searchBtn {
+    background-color: rgb(83, 80, 80);
+}
+
 #user-input {
     margin-bottom: 15px;
+}
+
+#forecast5 {
+    color: black;
+}
+
+#container-5-day {
+    margin-top: 20px;
 }
 
 #forecast-container {

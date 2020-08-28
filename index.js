@@ -21,6 +21,7 @@ console.log('Sanity Check');
 //Clear search history when button is clicked
 clearBtn.on('click', function () {
     localStorage.clear();
+    searchedArr = [];
     list.empty();
 });
 

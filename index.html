@@ -26,13 +26,13 @@
                         <input id="user-input" type="text" class="form-input" placeholder="Enter city here">
                         <button id="searchBtn" class="btn btn-primary input-group-btn"><i class="icon icon-search"></i></button>
                     </div>
-                    <button id="clear">Clear Search History</button>
+                    <button id="clear" class="btn btn-error">Clear Search History</button>
                     <ul id="list" style="list-style-type:none"></ul>
             </div>
 
             <!-- Current Days Forecast-->
             <div class="column col-8 col-sm-12 col-md-9">
-                <div class="card bg-secondary">
+                <div class="card bg-dark">
                     <div id="card-header" class="card-header">
                         <div class="card-title h5">
                             <h3 id="card-title">Todays Weather in:</h3>
@@ -50,14 +50,14 @@
                 </div>
                 <div class="columns">
                     <!-- 5 Day Forecast-->
-                    <div class="column col-12 col-sm-12 col-md-12">
-                        <h4><u>5 Day Forecast</u></h4>
+                    <div id="container-5-day" class="column col-12 col-sm-12 col-md-12">
+                        <h3 id="forecast5"><u>5 Day Forecast</u></h3>
                         <div id="forecast-container" class="columns">
-                            <div id="day1" class="day5 column col-2 col-sm-6 col-md-3 bg-primary"></div>
-                            <div id="day2" class="day5 column col-2 col-sm-6 col-md-3 bg-primary"></div>
-                            <div id="day3" class="day5 column col-2 col-sm-6 col-md-3 bg-primary"></div>
-                            <div id="day4" class="day5 column col-2 col-sm-6 col-md-3 bg-primary"></div>
-                            <div id="day5" class="day5 column col-2 col-sm-6 col-md-3 bg-primary"></div>
+                            <div id="day1" class="day5 column col-2 col-sm-6 col-md-3 bg-dark"></div>
+                            <div id="day2" class="day5 column col-2 col-sm-6 col-md-3 bg-dark"></div>
+                            <div id="day3" class="day5 column col-2 col-sm-6 col-md-3 bg-dark"></div>
+                            <div id="day4" class="day5 column col-2 col-sm-6 col-md-3 bg-dark"></div>
+                            <div id="day5" class="day5 column col-2 col-sm-6 col-md-3 bg-dark"></div>
                         </div>
                     </div>
                 </div>
