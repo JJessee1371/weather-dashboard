@@ -106,7 +106,7 @@ function getWeather(cityName) {
                 let k = response2.daily[dailyArr[i]].temp.day;
                 let f = $('<p>').text(Math.floor(1.8 * (k - 273) + 32) + '°F');
                 //Set Humidity
-                let humidity = $('<p>').text(response2.daily[dailyArr[i]].humidity + '%');
+                let humidity = $('<p>').text('Humidity: ' + response2.daily[dailyArr[i]].humidity + '%');
                 //Append all items to specified day
                 displayArr[i].append(newIcon, date, f, humidity);
             };
