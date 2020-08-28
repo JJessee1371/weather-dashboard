@@ -17,13 +17,13 @@ const day3 = $('#day3');
 const day4 = $('#day4');
 const day5 = $('#day5');
 
-console.log('Sanity Check');
 //Clear search history when button is clicked
 clearBtn.on('click', function () {
     localStorage.clear();
     searchedArr = [];
     list.empty();
 });
+
 
 //Setup for the search history items array
 let searchedArr = [];
@@ -35,6 +35,7 @@ if (searchHist) {
     //Most recent searches' weather data will be loaded
     getWeather(searchedArr[searchedArr.length - 1]);
 };
+
 
 //Loads search history to the page when opened or refreshed
 function loadHistory() {
@@ -151,6 +152,3 @@ searchBtn.on('click', function () {
 list.on('click', function (event) {
     getWeather($(event.target).text()); 
 });
-
-
-//Last searched city's information is displayed when page loads
