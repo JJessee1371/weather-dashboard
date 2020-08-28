@@ -4,7 +4,7 @@ This application makes use of the Open Weather API and given an input of a city 
 will provide the user with information on the current weather along with a 5 day 
 forecast. A secondary goal was to achieve better user interactivity by providing 
 a search history that the user can use to get weather information from previous
-searches along with ensuring a responsive design that allows for user on any device. 
+searches along with ensuring a responsive design that allows for use on any device. 
 
 ![WeatherAppScreenshot](https://user-images.githubusercontent.com/66571617/91623033-04ca1300-e957-11ea-8e6f-4933ac0ae3bf.PNG)
 
