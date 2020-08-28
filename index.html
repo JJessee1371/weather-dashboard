@@ -19,16 +19,16 @@
 
     <div class="container">
         <!-- Search bar and search history -->
-        <section class="columns">
-            <div class="column col-4 col-sm-12 col-md-3">
-                <h4 id="search">Search a city name:</h3>
+        <div class="columns">
+            <section class="column col-4 col-sm-12 col-md-3">
+                <h3 id="search">Search a city name:</h3>
                     <div class="input-group">
                         <input id="user-input" type="text" class="form-input" placeholder="Enter city here">
                         <button id="searchBtn" class="btn btn-primary input-group-btn"><i class="icon icon-search"></i></button>
                     </div>
                     <button id="clear" class="btn btn-error">Clear Search History</button>
                     <ul id="list" style="list-style-type:none"></ul>
-                </section>
+            </section>
 
             <!-- Current Days Forecast-->
             <div class="column col-8 col-sm-12 col-md-9">
@@ -41,7 +41,7 @@
                     </div>
                     <hr>
                     <div class="card-body">
-                        <img id="weathicon" src="" alt="Weather icon"> 
+                        <img id="weathicon" alt="Weather icon"> 
                         <p id="temp"></p>
                         <p id="humid"></p>
                         <p id="wind"></p>
