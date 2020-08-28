@@ -24,14 +24,32 @@ clearBtn.on('click', function () {
     list.empty();
 });
 
-// for (i = 0; i < localStorage.length; i++) {
-//     console.log(localStorage.key(i));
-//     let savedCity = localStorage.getItem(localStorage.key(i))
-//     let listItem = $('<li>');
-//     list.append(listItem.text(savedCity));
-// };
+//Setup for the search history items array
 let searchedArr = [];
-// console.log(key);
+let searchHist = JSON.parse(localStorage.getItem('storedArr'));
+if (searchHist) {
+    for (j = 0; j < searchHist.length; j++) {
+        searchedArr.push(searchHist[j]);
+    };
+    //Most recent searches' weather data will be loaded
+    getWeather(searchedArr[searchedArr.length - 1]);
+};
+
+//Loads search history to the page when opened or refreshed
+function loadHistory() {
+    let searchHist = JSON.parse(localStorage.getItem('storedArr'));
+    if(!searchHist) {return}
+    else {
+        list.empty();
+        for (i = 0; i < searchHist.length; i++) {
+            let listItem = searchHist[i];
+            let listDisplay = $('<li>');
+            list.prepend(listDisplay.text(listItem));
+        };
+    };
+};
+loadHistory();
+
 
 //Function retrieves weather data
 function getWeather(cityName) {
@@ -92,15 +110,11 @@ function getWeather(cityName) {
             };
         });
 
-        //Saves city searches to the local storage
+        //Saves information to local storage and loads the searched items
         searchedArr.push(cityName);
         localStorage.setItem('storedArr', JSON.stringify(searchedArr));
-        // //Displays the search history to the screen
-        let searchHist = JSON.parse(localStorage.getItem('storedArr'));
-        let listItem = searchHist[searchHist.length - 1]
-        let listDisplay = $('<li>');
-        list.append(listDisplay.text(listItem));
-
+        loadHistory();
+        console.log(searchedArr);
 
         //Empty the previously set items in the current days weather
         city.empty();
@@ -137,3 +151,5 @@ list.on('click', function (event) {
     getWeather($(event.target).text()); 
 });
 
+
+//Last searched city's information is displayed when page loads
