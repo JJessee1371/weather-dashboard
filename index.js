@@ -55,7 +55,7 @@ loadHistory();
 
 //Function retrieves weather data
 function getWeather(cityName) {
-    let queryURL = 'http://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&appid=09009915e3fc252d07db5e780defa8fe';
+    let queryURL = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&appid=09009915e3fc252d07db5e780defa8fe';
     $.ajax({
         url: queryURL,
         method: 'GET'
@@ -63,7 +63,7 @@ function getWeather(cityName) {
         //One Call API to get UV index information utilizing lat/lon from previous ajax request
         let lat = response.coord.lat;
         let lon = response.coord.lon;
-        let queryURL2 = 'http://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&exclude=hourly,minutely&appid=09009915e3fc252d07db5e780defa8fe';
+        let queryURL2 = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&exclude=hourly,minutely&appid=09009915e3fc252d07db5e780defa8fe';
         $.ajax({
             url: queryURL2,
             method: 'GET'
