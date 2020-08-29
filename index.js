@@ -100,7 +100,7 @@ function getWeather(cityName) {
                 let date = $('<p>').text(moment().add(daysAddArr[i], 'days').format("MM/DD/YYYY"));
                 //Set Icon
                 let iconCode = response2.daily[dailyArr[i]].weather[0].icon;
-                let iconURL = 'http://openweathermap.org/img/w/' + iconCode + '.png';
+                let iconURL = 'https://openweathermap.org/img/w/' + iconCode + '.png';
                 let newIcon = $('<img>').attr('alt', 'Weather Icon').attr('src', iconURL);
                 //Set Temperature
                 let k = response2.daily[dailyArr[i]].temp.day;
@@ -128,7 +128,7 @@ function getWeather(cityName) {
         city.text('Todays weather in: ' + cityName + ' ' + moment().format("MM/DD/YYYY"));
         //Get the open weather icon
         let iconCode = response.weather[0].icon;
-        let iconURL = 'http://openweathermap.org/img/w/' + iconCode + '.png';
+        let iconURL = 'https://openweathermap.org/img/w/' + iconCode + '.png';
         icon.attr('src', iconURL);
         //Convert Kelvin temp to Farenheit and set
         let k = response.main.temp;
