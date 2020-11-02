@@ -65,3 +65,7 @@ header {
 li:hover {
     text-decoration: underline;
 }
+
+.bg {
+    background: linear-gradient(to right, rgb(156, 151, 151), rgb(189, 184, 184), rgb(231, 225, 225));
+}

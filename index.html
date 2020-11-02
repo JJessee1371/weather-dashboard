@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Spectre CSS Links-->
+    <!-- Spectre CSS Links -->
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
@@ -32,7 +32,7 @@
 
             <!-- Current Days Forecast-->
             <div class="column col-8 col-sm-12 col-md-9">
-                <section class="card bg-dark">
+                <section class="card bg">
                     <div id="card-header" class="card-header">
                         <div class="card-title h5">
                             <h3 id="card-title">Todays Weather in:</h3>
@@ -41,24 +41,23 @@
                     </div>
                     <hr>
                     <div class="card-body">
-                        <img id="weathicon" src="" alt="" class="hidden"> <!-- Hidden until search -->
+                        <img id="weathicon" src="" alt="" class="hidden">
                         <p id="temp"></p>
                         <p id="humid"></p>
                         <p id="wind"></p>
-                        <p id="uv"></p><span id="uvNum" class="label"></span>
+                        <p id="uv"></p><span id="uvNum" class="uvNum label"></span>
                     </div>
                 </section>
                 <div class="columns">
-                    <!-- 5 Day Forecast-->
+                    <!-- 5 Day Forecast -->
                     <section id="container-5-day" class="column col-12 col-sm-12 col-md-12">
                         <h3 id="forecast5"><u>5 Day Forecast</u></h3>
-                        <div id="forecast-container" class="columns hidden">
-                            <!-- Hidden until search -->
-                            <div id="day1" class="day5 column col-2 col-sm-6 col-md-6 col-lg-3 col-xl-3 bg-dark"></div>
-                            <div id="day2" class="day5 column col-2 col-sm-6 col-md-6 col-lg-3 col-xl-3 bg-dark"></div>
-                            <div id="day3" class="day5 column col-2 col-sm-6 col-md-6 col-lg-3 col-xl-3 bg-dark"></div>
-                            <div id="day4" class="day5 column col-2 col-sm-6 col-md-6 col-lg-3 col-xl-3 bg-dark"></div>
-                            <div id="day5" class="day5 column col-2 col-sm-6 col-md-6 col-lg-3 col-xl-3 bg-dark"></div>
+                        <div class="columns">
+                            <div id="day1" class="column col-2 col-sm-6 col-md-6 col-lg-3 col-xl-3 bg"></div>
+                            <div id="day2" class="column col-2 col-sm-6 col-md-6 col-lg-3 col-xl-3 bg"></div>
+                            <div id="day3" class="column col-2 col-sm-6 col-md-6 col-lg-3 col-xl-3 bg"></div>
+                            <div id="day4" class="column col-2 col-sm-6 col-md-6 col-lg-3 col-xl-3 bg"></div>
+                            <div id="day5" class="column col-2 col-sm-6 col-md-6 col-lg-3 col-xl-3 bg"></div>
                         </div>
                     </section>
                 </div>
@@ -66,7 +65,7 @@
         </div>
     </div>
 
-<!-- jQuery CDN-->
+<!-- jQuery CDN -->
 <script
 src="https://code.jquery.com/jquery-3.5.1.js"
 integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="

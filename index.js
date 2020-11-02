@@ -122,7 +122,7 @@ function getWeather(cityName) {
         wind.empty();
 
         //Set current days forecast including icon, temp, humidity, wind speed, etc
-        city.text('Todays weather in: ' + cityName + ' ' + moment().format("MM/DD/YYYY"));
+        city.text(`Todays weather in: ${cityName} - ` + moment().format("MM/DD/YYYY"));
         let iconCode = response.weather[0].icon;
         let iconURL = `https://openweathermap.org/img/w/${iconCode}.png`;
         icon.attr('src', iconURL).attr('alt', 'Weather icon');
@@ -138,7 +138,11 @@ function getWeather(cityName) {
 //Search button click listener
 searchBtn.on('click', function () {
     icon.removeClass('hidden').addClass('visible');
-    $('#forecast-container').removeClass('hidden').addClass('visible');
+    day1.addClass('day5');
+    day2.addClass('day5');
+    day3.addClass('day5');
+    day4.addClass('day5');
+    day5.addClass('day5');
     getWeather(userInput.val().trim());  
 });
 
