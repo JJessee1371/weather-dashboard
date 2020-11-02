@@ -41,7 +41,7 @@
                     </div>
                     <hr>
                     <div class="card-body">
-                        <img id="weathicon" alt="Weather icon"> 
+                        <img id="weathicon" src="" alt="" class="hidden"> <!-- Hidden until search -->
                         <p id="temp"></p>
                         <p id="humid"></p>
                         <p id="wind"></p>
@@ -52,7 +52,8 @@
                     <!-- 5 Day Forecast-->
                     <section id="container-5-day" class="column col-12 col-sm-12 col-md-12">
                         <h3 id="forecast5"><u>5 Day Forecast</u></h3>
-                        <div id="forecast-container" class="columns">
+                        <div id="forecast-container" class="columns hidden">
+                            <!-- Hidden until search -->
                             <div id="day1" class="day5 column col-2 col-sm-6 col-md-6 col-lg-3 col-xl-3 bg-dark"></div>
                             <div id="day2" class="day5 column col-2 col-sm-6 col-md-6 col-lg-3 col-xl-3 bg-dark"></div>
                             <div id="day3" class="day5 column col-2 col-sm-6 col-md-6 col-lg-3 col-xl-3 bg-dark"></div>
@@ -75,5 +76,4 @@ crossorigin="anonymous"></script>
 <!-- External JS Script -->
 <script src="index.js"></script>
 </body>
-
 </html>
