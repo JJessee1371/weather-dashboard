@@ -55,7 +55,7 @@ loadHistory();
 
 //Function retrieves weather data
 function getWeather(cityName) {
-    let queryURL = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&appid=09009915e3fc252d07db5e780defa8fe';
+    let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=09009915e3fc252d07db5e780defa8fe`;
     $.ajax({
         url: queryURL,
         method: 'GET'
@@ -63,7 +63,7 @@ function getWeather(cityName) {
         //One Call API to get UV index information utilizing lat/lon from previous ajax request
         let lat = response.coord.lat;
         let lon = response.coord.lon;
-        let queryURL2 = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&exclude=hourly,minutely&appid=09009915e3fc252d07db5e780defa8fe';
+        let queryURL2 = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely&appid=09009915e3fc252d07db5e780defa8fe`;
         $.ajax({
             url: queryURL2,
             method: 'GET'
@@ -96,18 +96,15 @@ function getWeather(cityName) {
             displayArr = [day1, day2, day3, day4, day5];
 
             for (i = 0; i < 5; i++) {
-                //Set Date
                 let date = $('<p>').text(moment().add(daysAddArr[i], 'days').format("MM/DD/YYYY"));
-                //Set Icon
                 let iconCode = response2.daily[dailyArr[i]].weather[0].icon;
-                let iconURL = 'https://openweathermap.org/img/w/' + iconCode + '.png';
+                let iconURL = `https://openweathermap.org/img/w/${iconCode}.png`;
                 let newIcon = $('<img>').attr('alt', 'Weather Icon').attr('src', iconURL);
-                //Set Temperature
                 let k = response2.daily[dailyArr[i]].temp.day;
                 let f = $('<p>').text(Math.floor(1.8 * (k - 273) + 32) + '°F');
-                //Set Humidity
-                let humidity = $('<p>').text('Humidity: ' + response2.daily[dailyArr[i]].humidity + '%');
-                //Append all items to specified day
+                let humidity = $('<p>').text(`Humidity: ${response2.daily[dailyArr[i]].humidity}%`);
+
+                //Append information to its given div element
                 displayArr[i].append(newIcon, date, f, humidity);
             };
         });
@@ -116,39 +113,37 @@ function getWeather(cityName) {
         searchedArr.push(cityName);
         localStorage.setItem('storedArr', JSON.stringify(searchedArr));
         loadHistory();
-        console.log(searchedArr);
 
-        //Empty the previously set items in the current days weather
+        //Empty previous search results 
         city.empty();
         icon.attr('src', '');
         temp.empty();
         humidity.empty();
         wind.empty();
-        //Set current days forecast
+
+        //Set current days forecast including icon, temp, humidity, wind speed, etc
         city.text('Todays weather in: ' + cityName + ' ' + moment().format("MM/DD/YYYY"));
-        //Get the open weather icon
         let iconCode = response.weather[0].icon;
-        let iconURL = 'https://openweathermap.org/img/w/' + iconCode + '.png';
-        icon.attr('src', iconURL);
-        //Convert Kelvin temp to Farenheit and set
+        let iconURL = `https://openweathermap.org/img/w/${iconCode}.png`;
+        icon.attr('src', iconURL).attr('alt', 'Weather icon');
         let k = response.main.temp;
         let f = Math.floor(1.8 * (k - 273) + 32);
-        temp.text('Temperature:' + ' ' + f + ' ' + '°F');
-        //Set humidity
-        humidity.text('Humidity:' + ' ' + response.main.humidity + '%');
-        //Set wind speed
-        wind.text('Wind speed:' + ' ' + response.wind.speed + 'mph');
+        temp.text(`Temperature: ${f}°F`);
+        humidity.text(`Humidity: ${response.main.humidity}%`);
+        wind.text(`Wind speed: ${response.wind.speed}mph`);
     });
 };
 
 
 //Search button click listener
 searchBtn.on('click', function () {
+    icon.removeClass('hidden').addClass('visible');
+    $('#forecast-container').removeClass('hidden').addClass('visible');
     getWeather(userInput.val().trim());  
 });
 
 
-// When user clicks an item in search history they are presented with current/future data for that city
+//If search history items are clicked, city data is populated
 list.on('click', function (event) {
     getWeather($(event.target).text()); 
 });
