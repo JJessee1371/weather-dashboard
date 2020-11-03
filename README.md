@@ -1,13 +1,13 @@
 # Weather Dashboard
 
 ## Table of Contents
-[Description](#Description)
-[Screenshot](#Screenshot)
-[Deployed_Site](#Deployed_Site)
-[Languages_Used](#Langauges_Used)
-[Technologies](#Technologies)
-[Contributing](#Contributing)
-[License](#License)
+* [Description](#Description)
+* [Screenshot](#Screenshot)
+* [Deployed_Site](#Deployed_Site)
+* [Languages_Used](#Langauges_Used)
+* [Technologies](#Technologies)
+* [Contributing](#Contributing)
+* [License](#License)
 
 ## Description
 This application makes use of the Open Weather API and given an input of a city name 
