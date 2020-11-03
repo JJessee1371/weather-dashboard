@@ -12,6 +12,7 @@ body {
 
 p {
     font-size: 1.5em;
+    color: black;
 }
 
 li {
@@ -58,8 +59,8 @@ header {
 }
 
 .day5 {
-    border: 2px solid black;
     border-radius: 25px;
+    margin: 8px;
 }
 
 li:hover {
@@ -68,4 +69,13 @@ li:hover {
 
 .bg {
     background: linear-gradient(to right, rgb(156, 151, 151), rgb(189, 184, 184), rgb(231, 225, 225));
+}
+
+.btn {
+    background-color: rgb(207, 11, 11);
+    color: white;
+}
+
+.btn:hover {
+    color: black;
 }
