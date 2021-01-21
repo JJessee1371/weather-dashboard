@@ -89,16 +89,17 @@ function getWeather(cityName) {
             day5.empty();
 
             //Set UV index value for the current day
+            let uvVal = response2.current.uvi;
             uv.text('UV Index: ');
-            uvNum.text(response2.current.uvi);
+            uvNum.text(uvVal);
             uvNum.removeClass('label-success label-warning label-error');
-            if (response2.current.uvi < 4) {
+            if (uvVal < 4) {
                 uvNum.addClass('label-success');
             }
-            else if (response2.current.uvi >= 4 && response2.current.uvi <= 7) {
+            else if (uvVal >= 4 && uvVal <= 7) {
                 uvNum.addClass('label-warning');
             }
-            else if (response2.current.uvi > 7) {
+            else if (uvVal > 7) {
                 uvNum.addClass('label-error');
             };
 

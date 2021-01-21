@@ -1,3 +1,5 @@
+/* Global styles 
+======================== */
 body {
     background-image: url('./images/weatherdash_bg_main.jpg');
     background-repeat: no-repeat;
@@ -19,64 +21,7 @@ p {
 
 li {
     color: black;
-    font-size: 1em;
-}
-
-header {
-    font-size: 4em;
-    margin-bottom: 25px;
-}
-
-.current-day {
-    border-style: outset;
-}
-
-#searchBtn {
-    background-color: rgb(83, 80, 80);
-}
-
-#user-input {
-    margin-bottom: 15px;
-}
-
-#uvNum {
-    display: inline;
-    color: white;
-}
-
-#container-5-day {
-    margin-top: 20px;
-}
-
-#forecast-container {
-    display: flex;
-    justify-content: space-around;
-}
-
-.forecast {
-    border: 2px solid black;
-}
-
-.day5 {
-    border-radius: 25px;
-    margin: 8px;
-    padding: 15px;
-    border-style: outset;
-}
-
-li:hover {
-    text-decoration: underline;
-}
-
-.bg {
-    background: linear-gradient(to right, rgb(156, 151, 151), rgb(189, 184, 184), rgb(231, 225, 225));
-}
-
-.main-card {
-    background-image: url('./images/weatherdash_bg_current.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    font-size: 24px;
 }
 
 .white-text {
@@ -87,6 +32,32 @@ li:hover {
     color: black;
 }
 
+/* Header styles 
+======================== */
+header {
+    font-size: 4em;
+    margin-bottom: 25px;
+}
+
+/* Searchbar and history styles 
+======================== */
+#searchBtn {
+    background-color: rgb(83, 80, 80);
+}
+
+#user-input {
+    margin-bottom: 15px;
+}
+
+.search-hist {
+    text-decoration: underline;
+    margin-top: 15px;
+}
+
+li:hover {
+    text-decoration: underline;
+}
+
 .btn {
     background-color: rgb(207, 11, 11);
     color: white;
@@ -95,3 +66,41 @@ li:hover {
 .btn:hover {
     color: black;
 }
+
+/* Current day forecast styles 
+======================== */
+.main-card {
+    background-image: url('./images/weatherdash_bg_current.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-style: outset;
+}
+
+#uv {
+    display: inline;
+}
+
+#uvNum {
+    font-size: 24px;
+}
+
+/* 5 day forecast styles 
+======================== */
+#container-5-day {
+    margin-top: 20px;
+}
+
+.bg {
+    background: linear-gradient(to right, rgb(156, 151, 151), rgb(189, 184, 184), rgb(231, 225, 225));
+    border-radius: 25px;
+    margin: 8px;
+    padding: 15px;
+    border-style: outset;
+}
+
+/* Media queries for mobile responsive design 
+======================== */
+
+
+
