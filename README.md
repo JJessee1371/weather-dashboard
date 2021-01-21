@@ -10,10 +10,11 @@
 * [License](#License)
 
 ## Description
-This application makes use of the Open Weather API and given an input of a city name 
-will provide the user with information on the current weather along with a 5 day 
+This application makes use of the OpenWeather API and given an input of a city name 
+will provide the user with information on the current weather conditions along with a 5 day 
 forecast. Search history has been included which utilizes local storage to track
-the users' interactions with the page.  
+the users' interactions with the page. Front-end was constructed using the Spectre CSS
+framework. 
 
 ## Screenshot
 ![weather](https://user-images.githubusercontent.com/66571617/98019057-8b1f2d00-1dbe-11eb-907f-7330ba3b4513.PNG)
@@ -25,11 +26,15 @@ https://jjessee1371.github.io/weather-dashboard/
 * HTML 
 * CSS
 * JavaScript
+* Open Weather API
 
 ## Technologies 
-* Spectre CSS framework https://picturepan2.github.io/spectre/
-* jQuery CDN https://jquery.com/ 
-* Moment.js library https://momentjs.com/
+* HTML
+* JavaScript
+* Spectre CSS framework (https://picturepan2.github.io/spectre/)
+* jQuery (https://jquery.com/) 
+* Moment.js library (https://momentjs.com/)
+* OpenWeather API (https://openweathermap.org/api)
 
 ## Contributing
 If you would like to make any contributions to this project, please feel free to contact
