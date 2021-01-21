@@ -17,7 +17,7 @@ the users' interactions with the page. Front-end was constructed using the Spect
 framework. 
 
 ## Screenshot
-![weather](https://user-images.githubusercontent.com/66571617/98019057-8b1f2d00-1dbe-11eb-907f-7330ba3b4513.PNG)
+![weatherdash_snip](https://user-images.githubusercontent.com/66571617/105427215-e0264e80-5c09-11eb-8f04-2162ea12b9ea.PNG)
 
 ## Deployed Site
 https://jjessee1371.github.io/weather-dashboard/
