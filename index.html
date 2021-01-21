@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+    <!-- Favicon -->
+    <link rel="icon" href="images/weatherdash_favicon.png">
     <!-- Personal Stylesheet -->
     <link rel="stylesheet" href="styles.css">
     <title>Weather Dashboard</title>
@@ -15,13 +17,13 @@
 
 <body>
     <!-- Header-->
-    <header class="bg-dark text-center">Weather Forecast</header>
+    <header class="black-text text-center">Weather Dashboard</header>
 
     <div class="container">
         <!-- Search bar and search history -->
         <div class="columns">
             <section class="column col-4 col-sm-12 col-md-12">
-                <h3 id="search">Search a city name</h3>
+                <h3 class="black-text">Search a city name:</h3>
                     <div class="input-group">
                         <input id="user-input" type="text" class="form-input" placeholder="Enter city here">
                         <button id="searchBtn" class="btn btn-primary input-group-btn"><i class="icon icon-search"></i></button>
@@ -32,26 +34,26 @@
 
             <!-- Current Days Forecast-->
             <div class="column col-8 col-sm-12 col-md-9">
-                <section class="card bg">
+                <section class="card bg main-card current-day">
                     <div id="card-header" class="card-header">
                         <div class="card-title h5">
-                            <h3 id="card-title">Todays Weather in:</h3>
+                            <h3 id="card-title" class="white-text">Todays Weather in:</h3>
                             <hr>
                         </div>
                     </div>
                     <hr>
                     <div class="card-body">
                         <img id="weathicon" src="" alt="" class="hidden">
-                        <p id="temp"></p>
-                        <p id="humid"></p>
-                        <p id="wind"></p>
-                        <p id="uv"></p><span id="uvNum" class="uvNum label"></span>
+                        <p id="temp" class="white-text"></p>
+                        <p id="humid" class="white-text"></p>
+                        <p id="wind" class="white-text"></p>
+                        <p id="uv" class="white-text"></p><span id="uvNum" class="uvNum label"></span>
                     </div>
                 </section>
                 <div class="columns">
                     <!-- 5 Day Forecast -->
                     <section id="container-5-day" class="column col-12 col-sm-12 col-md-12">
-                        <h3 id="forecast5"><u>5 Day Forecast</u></h3>
+                        <h3 class="black-text"><u>5 Day Forecast</u></h3>
                         <div class="columns">
                             <div id="day1" class="column col-2 col-sm-6 col-md-6 col-lg-3 col-xl-3 bg"></div>
                             <div id="day2" class="column col-2 col-sm-6 col-md-6 col-lg-3 col-xl-3 bg"></div>
