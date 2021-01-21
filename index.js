@@ -113,11 +113,12 @@ function getWeather(cityName) {
                 let iconURL = `https://openweathermap.org/img/w/${iconCode}.png`;
                 let newIcon = $('<img>').attr('alt', 'Weather Icon').attr('src', iconURL);
                 let k = response2.daily[dailyArr[i]].temp.day;
-                let f = $('<p>').text(Math.floor(1.8 * (k - 273) + 32) + '°F');
+                let c = Math.floor(k - 273.15);
+                let f = $('<p>').text(`${Math.floor(1.8 * (k - 273) + 32)}°F / ${c}°C`);
                 let humidity = $('<p>').text(`Humidity: ${response2.daily[dailyArr[i]].humidity}%`);
 
                 //Append information to its given div element
-                displayArr[i].append(newIcon, date, f, humidity);
+                displayArr[i].append(date, newIcon, f, humidity);
             };
         });
 
@@ -137,8 +138,9 @@ function getWeather(cityName) {
         let iconURL = `https://openweathermap.org/img/w/${iconCode}.png`;
         icon.attr('src', iconURL).attr('alt', 'Weather icon');
         let k = response.main.temp;
+        let c = Math.floor(k - 273.15);
         let f = Math.floor(1.8 * (k - 273) + 32);
-        temp.text(`Temperature: ${f}°F`);
+        temp.text(`Temperature: ${f}°F / ${c}°C`);
         humidity.text(`Humidity: ${response.main.humidity}%`);
         wind.text(`Wind speed: ${response.wind.speed}mph`);
 
