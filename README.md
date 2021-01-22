@@ -6,27 +6,21 @@
 * [Deployed_Site](#Deployed_Site)
 * [Languages_Used](#Langauges_Used)
 * [Technologies](#Technologies)
+* [Future_Development](#Future-Development)
 * [Contributing](#Contributing)
 * [License](#License)
 
 ## Description
 This application makes use of the OpenWeather API and given an input of a city name 
 will provide the user with information on the current weather conditions along with a 5 day 
-forecast. Search history has been included which utilizes local storage to track
-the users' interactions with the page. Front-end was constructed using the Spectre CSS
-framework. 
+forecast to include temperature, wind speed, and UV index. A search history function has been included by utilizing local storage to track
+the users' interactions with the page. This page was constructed using the Spectre CSS framework. 
 
 ## Screenshot
-![weatherdash_snip](https://user-images.githubusercontent.com/66571617/105427215-e0264e80-5c09-11eb-8f04-2162ea12b9ea.PNG)
+![weatherdash_pic](https://user-images.githubusercontent.com/66571617/105443083-2db1b400-5c28-11eb-95f6-0a9cf7852c73.PNG)
 
 ## Deployed Site
 https://jjessee1371.github.io/weather-dashboard/
-
-## Languages Used
-* HTML 
-* CSS
-* JavaScript
-* Open Weather API
 
 ## Technologies 
 * HTML
@@ -35,6 +29,13 @@ https://jjessee1371.github.io/weather-dashboard/
 * jQuery (https://jquery.com/) 
 * Moment.js library (https://momentjs.com/)
 * OpenWeather API (https://openweathermap.org/api)
+
+## Future Development
+In the future I would like to make this application more accurate with the data that is returned when the user searches a location. 
+Using the current endpoint from OpenWeather the data is retreived by using a city name, however, this becomes a problem since many cities
+share the same name. Additionally, I would like to alter the search history to appear as a dropdown when hovering over the search
+bar so that it does not consume space on the page especially for smaller mobile devices. Finally, I would like to include the necessary 
+material to convert this application into a PWA so that it can be downloaded to the users device and be more readily accessible.  
 
 ## Contributing
 If you would like to make any contributions to this project, please feel free to contact
