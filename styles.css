@@ -101,6 +101,26 @@ li:hover {
 
 /* Media queries for mobile responsive design 
 ======================== */
+@media screen and (min-width: 320px) and (max-width: 768px) {
+    .row-1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
+    .column-5day {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-hist, #list, .header-5 {
+        text-align: center;
+    }
+
+    #list, .main-card {
+        margin-bottom: 45px;
+    }
+}
 
 
