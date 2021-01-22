@@ -3,10 +3,9 @@
 ## Table of Contents
 * [Description](#Description)
 * [Screenshot](#Screenshot)
-* [Deployed_Site](#Deployed_Site)
-* [Languages_Used](#Langauges_Used)
+* [Deployed Site](#Deployed_Site)
 * [Technologies](#Technologies)
-* [Future_Development](#Future-Development)
+* [Future Development](#Future-Development)
 * [Contributing](#Contributing)
 * [License](#License)
 
